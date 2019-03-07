@@ -2,6 +2,7 @@ import subprocess
 import re
 import psutil
 
+# You can watch any process in my case it was the imagent because it had a memory leak in Mac OS Sierra
 PROCESS = "imagent"
 THRESHOLD = 100 # MB
 THRESHOLD = 2000
@@ -68,9 +69,9 @@ pid = ''.join(re.findall(mem_regex, pid))
 
 # print(mem, unit, pid)
 print("==========RUNNING=============")
-# If a malicious process is found, we get rid of it
+# If an undesired process is found, we get rid of it
 if unit == UNIT and mem >= THRESHOLD:
-  print("Danger! Killing process " + pid)
+  print("Found mem. leak process! Killing " + pid)
   runUntilKilled(pid)
 else:
-  print("No malicious processes found")
+  print("No mem. leak processes found")
