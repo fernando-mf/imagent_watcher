@@ -1,2 +1,3 @@
 #!/bin/bash
-/Users/fernando_mf/anaconda/bin/python ~/Desktop/process-watcher/watcher.py >> ~/Desktop/process-watcher/output.txt
+# Pass your python interpreter, your script path and a file for the logs
+<path_to_python> <script_path> >> <logs_path>
